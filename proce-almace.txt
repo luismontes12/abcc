@@ -1,0 +1,84 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `alta_com`(IN `sk` INT, IN `arti` VARCHAR(15), IN `mar` VARCHAR(20), IN `model` VARCHAR(20), IN `dep` INT(1), IN `clas` INT(2), IN `fam` INT(3), IN `falt` DATE, IN `sto` INT(9), IN `cant` INT(9), IN `descont` INT(1), IN `fbaj` DATE)
+BEGIN
+    DECLARE exis_regi INT;
+
+    SELECT COUNT(*) INTO exis_regi
+    FROM articulos
+    WHERE articulos.Sku = sk;
+
+
+    IF exis_regi = 0 THEN
+        INSERT INTO articulos(Sku,Articulos,Modelo,Marca,Depart,Clase,Familia,Fech_alt,Stock,Cant, Descon,Fech_baj)
+        VALUES (sk,arti,mar,model,dep,clas,fam,falt,sto,cant,descont,fbaj);
+        SELECT 'Articulo agregado.' AS mensaje;
+    ELSE
+        SELECT 'Ya existe un registro con este SKU.' AS mensaje;
+    END IF;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `baja`(
+	sk INT
+)
+DELETE FROM articulos WHERE articulos.Sku=sk$$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cambio`(
+	sk INT(6), 
+    art VARCHAR(15),
+    mar VARCHAR(15),
+    model VARCHAR(20),
+    dep INT(1),
+    clas INT(1),
+    fam INT(1),
+    falt DATE,
+    sto INT(9),
+    cant INT(9),
+    des INT(1),
+    fbaj DATE
+)
+UPDATE articulos SET articulos.Articulo=art, articulos.Marca=mar, articulos.Modelo=model, articulos.Departamento=dep, articulos.Clase=clas, articulos.Familia=fam,articulos.Fecha_alta=falt, articulos.Stock=sto, articulos.Cantidad=cant, articulos.Descontinuado=des, articulos.Fecha_baja=fbaj WHERE articulos.Sku=sk$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mostrar`(
+    sk INT
+)
+SELECT * FROM articulos WHERE sk=articulos.Sku$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `seleclas`()
+SELECT * FROM clase$$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `seledep`(
+	
+)
+SELECT * FROM departamento$$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selefam`()
+SELECT * FROM familia$$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `validacion_dep`(IN `id` INT)
+SELECT departamento.id_dep,clase.id_dep,familia.id_clas FROM departamento,clase, familia WHERE departamento.id_dep=id AND departamento.id_dep=clase.id_dep AND clase.id_clas=familia.id_clas$$
+DELIMITER ;
