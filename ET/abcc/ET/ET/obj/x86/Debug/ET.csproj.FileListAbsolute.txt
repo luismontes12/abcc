@@ -1,0 +1,10 @@
+c:\users\luis_\documents\visual studio 2010\Projects\ET\ET\obj\x86\Debug\ET.csprojResolveAssemblyReference.cache
+c:\users\luis_\documents\visual studio 2010\Projects\ET\ET\obj\x86\Debug\ET.Form1.resources
+c:\users\luis_\documents\visual studio 2010\Projects\ET\ET\obj\x86\Debug\ET.Properties.Resources.resources
+c:\users\luis_\documents\visual studio 2010\Projects\ET\ET\obj\x86\Debug\ET.csproj.GenerateResource.Cache
+c:\users\luis_\documents\visual studio 2010\Projects\ET\ET\bin\Debug\ET.exe
+c:\users\luis_\documents\visual studio 2010\Projects\ET\ET\bin\Debug\ET.pdb
+c:\users\luis_\documents\visual studio 2010\Projects\ET\ET\bin\Debug\MySql.Data.dll
+c:\users\luis_\documents\visual studio 2010\Projects\ET\ET\obj\x86\Debug\ET.exe
+c:\users\luis_\documents\visual studio 2010\Projects\ET\ET\obj\x86\Debug\ET.pdb
+C:\Users\luis_\documents\visual studio 2010\Projects\ET\ET\obj\x86\Debug\ET.Consultar.resources
